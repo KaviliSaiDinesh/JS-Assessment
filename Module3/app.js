@@ -4,6 +4,8 @@ const getWeatherBtn = document.getElementById('getWeatherBtn');
 const cityInput = document.getElementById('city');
 const weatherInfo = document.getElementById('weatherInfo');
 const historyList = document.getElementById('historyList');
+const modebtn = document.querySelector('#modebtn');
+const body = document.querySelector('body');
 
 const history = [];
 displayHistory(history);
@@ -70,3 +72,18 @@ function displayHistory(history) {
     });
 
 }
+
+let currMode = 'light';
+modebtn.addEventListener('click', () =>{
+    if(currMode === 'light')
+    {
+        currMode = 'dark';
+        body.classList.add(currMode);
+        body.classList.remove('light');
+    }else{
+        currMode = 'light';
+        body.classList.remove('dark');
+        body.classList.add(currMode);
+
+    }
+})
